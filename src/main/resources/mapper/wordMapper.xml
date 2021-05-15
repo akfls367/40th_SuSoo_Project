@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sc.it.dao.SuSooWordMapper">
+
+<!-- 단어 생성 -->
+<insert id="insertWord" parameterType="word">
+insert into
+    susoo_word(
+        word_num
+        ,word
+        ,meaning
+        ,s_id
+        ,wordlist_num
+    )values(
+        word_num_seq.nextval
+        ,#{word}
+        ,#{meaning}
+        ,#{s_id}
+        ,#{wordlist_num}
+    )
+</insert>
+
+<!-- 단어 가져 오기 -->
+<select id="selectAllWord" parameterType="string" resultType="word">
+select * from
+    susoo_word
+where s_id = #{s_id}
+order by indate desc
+</select>
+
+<select id="selectListWord" parameterType="word" resultType="word">
+select * from
+	susoo_word
+where
+	s_id = #{s_id}
+and
+	wordlist_num = #{wordlist_num}
+</select>
+
+<update id="updateMemoWord" parameterType="int">
+update 
+    susoo_word
+set
+    checking = 1
+where
+    word_num = #{word_num}
+</update>
+
+<update id="updateNotMemoWord" parameterType="int">
+update 
+    susoo_word
+set
+    checking = 2
+where
+    word_num = #{word_num}
+</update>
+
+<delete id="deleteWord" parameterType="int">
+delete from 
+	susoo_word
+where
+    word_num = #{word_num}
+</delete>
+
+<select id="countWord" parameterType="string" resultType="int">
+select count(*)
+from 
+	susoo_word
+where 
+	s_id = #{s_id}
+</select>
+
+<select id="countMemoWord" parameterType="string" resultType="int">
+select count(*)
+from 
+	susoo_word
+where 
+	s_id = #{s_id}
+and 
+	checking = 1
+</select>
+
+<select id="countNotMemoWord" parameterType="string" resultType="int">
+select count(*)
+from 
+	susoo_word
+where 
+	s_id = #{s_id}
+and 
+	checking = 2
+</select>
+
+
+
+</mapper>

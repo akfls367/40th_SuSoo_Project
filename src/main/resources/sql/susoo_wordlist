@@ -1,0 +1,9 @@
+create table
+    susoo_wordlist(
+        wordlist_num    number  		primary key
+        ,title          varchar2(50)    not null
+        ,s_id           varchar2(30)	not null
+        ,CONSTRAINT  fk_s_id foreign key(s_id)  REFERENCES  susoo_user(s_id)
+);
+
+create sequence wordlist_num_seq;

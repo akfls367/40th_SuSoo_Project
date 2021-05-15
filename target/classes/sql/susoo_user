@@ -1,0 +1,9 @@
+create table 
+    susoo_user(
+        s_name      varchar2(30)    not null
+        ,s_id       varchar2(30)    primary key    
+        ,s_pw       varchar2(30)    not null
+        ,s_gender   varchar2(10)    not null
+        ,s_email    varchar2(30)    not null
+        ,s_phone    varchar2(20)    not null
+);

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 회원정보 처리 SQL -->
+<mapper namespace="com.sc.it.dao.SuSooUserMapper">
+
+<!-- id체크 -->
+<select id="checkID" parameterType="string" resultType="user">
+select
+   s_name
+   ,s_id
+   ,s_pw
+   ,s_gender
+   ,s_email
+   ,s_phone
+from
+   susoo_user
+where
+   s_id = #{s_id}
+</select>
+
+<!-- 회원가입 -->
+<insert id="insertUser" parameterType="user">
+	insert into
+		susoo_user(
+			s_name
+			,s_id
+			,s_pw
+			,s_gender
+			,s_email
+			,s_phone
+		)values(
+			#{s_name}
+			,#{s_id}
+			,#{s_pw}
+			,#{s_gender}
+			,#{s_email}
+			,#{s_phone}
+		)
+</insert>
+
+<!-- 로그인 -->
+<select id="selectUser" parameterType="user" resultType="user">
+	select
+		s_name
+		,s_id
+		,s_pw
+		,s_gender
+		,s_email
+		,s_phone
+	from
+		susoo_user
+	where
+		s_id = #{s_id}
+	and
+		s_pw = #{s_pw}
+</select>
+
+<!-- ID 찾기 -->
+<select id="findId" parameterType="user" resultType="string">
+	select
+		s_id
+	from
+		susoo_user
+	where
+		s_name = #{s_name}
+	and
+		s_phone = #{s_phone}
+</select>
+
+<!-- PW 찾기 -->
+<select id="findPw" parameterType="user" resultType="string">
+	select
+		s_pw
+	from
+		susoo_user
+	where
+		s_id = #{s_id}
+	and
+		s_email = #{s_email}
+</select>
+
+<!-- 회원정보변경 -->
+<update id="changeUser" parameterType="user">
+	update 
+	    susoo_user
+	set
+	    s_name = #{s_name}
+	    ,s_email = #{s_email}
+	    ,s_phone = #{s_phone}
+	    ,s_gender = #{s_gender}
+	where
+	    s_id = #{s_id}
+</update>
+
+<!-- 비번 변경 -->
+<update id="changePw" parameterType="user">
+	update 
+	    susoo_user
+	set
+	    s_pw = #{s_npw}
+	where
+	    s_pw = #{s_pw}
+</update>
+
+</mapper>

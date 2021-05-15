@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<typeAlias type="com.sc.it.vo.UserVO" alias="user" />
+		<typeAlias type="com.sc.it.vo.WordVO" alias="word" />
+		<typeAlias type="com.sc.it.vo.WordListVO" alias="wordl" />
+		<!-- <typeAlias type="com.sc.it.vo.WordListVO" alias="wordList" /> -->
+	</typeAliases>
+	<mappers>
+		<mapper resource="mapper/userMapper.xml" />
+		<mapper resource="mapper/wordMapper.xml" />
+		<mapper resource="mapper/wordListMapper.xml"/>
+	</mappers>
+</configuration>

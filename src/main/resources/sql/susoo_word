@@ -1,0 +1,14 @@
+create table 
+    susoo_word(
+        word_num        number           primary key
+        ,word           varchar2(500)    not null
+        ,meaning        varchar2(500)    not null
+        ,indate         date 			 not null           DEFAULT sysdate 
+        ,checking       number      	 not null			DEFAULT 2
+        ,s_id           varchar2(30)	 not null
+        ,wordlist_num   number			 not null
+        ,CONSTRAINT  fk_s_id2 foreign key(s_id)  REFERENCES  susoo_user(s_id)
+        ,CONSTRAINT  fk_wordlist_num foreign key(wordlist_num)  REFERENCES  susoo_wordlist(wordlist_num)
+);
+
+create sequence word_num_seq;
