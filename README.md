@@ -62,13 +62,13 @@
 ## 스크린샷
 
 ### 메인 화면
-![메인 화면](https://github.com/akfls367/40th_SuSoo_Project/screenshots/main.png)
+![메인 화면](https://github.com/akfls367/40th_SuSoo_Project/blob/main/screenshots/main.png)
 
 ### 단어장 관리
-![단어장 관리](https://github.com/akfls367/40th_SuSoo_Project/screenshots/wordbook.png)
+![단어장 관리](https://github.com/akfls367/40th_SuSoo_Project/blob/main/screenshots/wordbook.png)
 
 ### 게시판
-![게시판](https://github.com/akfls367/40th_SuSoo_Project/screenshots/board.png)
+![게시판](https://github.com/akfls367/40th_SuSoo_Project/blob/main/screenshots/board.png)
 
 ---
 
